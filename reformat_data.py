@@ -15,8 +15,7 @@ def get_tweet(tweet):
     twitter_tweet["hashtags"] = tweet.hashtags
     twitter_tweet["geo"] = tweet.geo
     twitter_tweet["permalink"] = tweet.permalink
-
-
+    
     return twitter_tweet
 
 
@@ -28,8 +27,6 @@ def main():
     tweet = got.manager.TweetManager.getTweets(tweetCriteria)
     for t in tweet:
         tweets.append(get_tweet(t))
-    
-
     cols=['id','date','username','to','text','retweets','favorites','mentions','hashtags','geo','permalink']
     data_frame = pd.DataFrame(tweets, columns=cols)
     data_frame.to_csv('morganstanley.csv', index=False)
