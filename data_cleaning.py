@@ -70,6 +70,13 @@ print("The tweet with more retweets is: \n{}".format(df['text'][rt]))
 print("Number of retweets: {}".format(rt_max))
 
 #wordcloud
+#imports
+pip install wordcloud
+import pandas as pd
+from pandas import Series, DataFrame
+import numpy as np
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 listnew1 = []
 for i in tokens_cl:
     listnew1.extend(i.lower().split(" "))
