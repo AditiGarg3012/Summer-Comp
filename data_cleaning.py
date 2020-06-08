@@ -69,4 +69,22 @@ print()
 print("The tweet with more retweets is: \n{}".format(df['text'][rt]))
 print("Number of retweets: {}".format(rt_max))
 
+#wordcloud
+listnew1 = []
+for i in tokens_cl:
+    listnew1.extend(i.lower().split(" "))
+wordcloud = WordCloud(
+        background_color="white", #set the background to white
+        width=2500,              #set the width
+        height=1500,              #set the height
+        margin=10               #set the margin
+        ).generate('\n'.join(listnew1))
+# show the graph
+plt.imshow(wordcloud)
+plt.axis("off")
+# show the picture
+plt.show()
+# save the picture
+wordcloud.to_file('./wordcloud.png')  
+
 
